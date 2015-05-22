@@ -53,7 +53,7 @@ class Citadel
       begin
         Chef::HTTP.new("https://#{bucket}.s3.amazonaws.com").get(path, headers)
       rescue Net::HTTPServerException => e
-        raise CitadelError, "Unable to download #{path}: #{e}"
+        raise CitadelError, "Unable to download s3://#{bucket}/#{path}: #{e}"
       end
     end
 
